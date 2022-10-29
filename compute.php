@@ -35,7 +35,12 @@
       exec( "./gnuplot.script.sh $target_dir $L" );
       exec( "gnuplot $target_dir/gnuplot.script" );
 //    VMD part
-      exec( "/home/caro/apps/vmd/vmd_1.9.3/bin/vmd -e " . $target_dir . "/vmd.script" );
+//      exec( "python3 trj_to_pdb.py $target_dir/trj.xyz $target_dir/trj.pdb 2>&1", $output );
+//      print_r($output);
+//      exec( "/home/caro/apps/vmd/vmd_1.9.3/bin/vmd -e $target_dir/vmd.script 2>&1", $output );
+      exec( "/home/caro/apps/vmd/vmd_1.9.4/vmd-1.9.4/bin/vmd -size 500 500 -e $target_dir/vmd.script 2>&1", $output );
+//      print_r($output);
+
       exec( "/usr/bin/convert -delay 10 $target_dir/snap.*.tga -loop 0 $target_dir/movie.gif &> $target_dir/out" );
 //***************************************************************************
 //
