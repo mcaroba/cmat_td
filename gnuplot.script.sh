@@ -18,35 +18,25 @@ eof
 L=$2
 
 cat>$1/vmd.script<<eof
-#mol load pdb $1/atoms_for_vmd.pdb
 mol load xyz $1/trj.xyz
-
 package require pbctools
-
-display resize 500 500
+#display resize 500 500
 color Display Background white
 axes location off
-#display projection orthographic
-#display depthcue off
 set result [ expr 0.95*($L/60.) ]
 pbc box
 pbc set {$L $L $L} -all
 pbc wrap -all
 scale by \$result
-
 mol addrep 0
 mol modstyle 0 0 VDW 0.5 50
-#mol modstyle 1 0 DynamicBonds 1.9 0.1 50
-
-#render TachyonInternal atoms.tga
-
+render TachyonInternal $1/bas.tga
 set frame 0
-for {set i 0} {\$i < 10} {incr i 1} {
+for {set i 0} {\$i < 50} {incr i 1} {
     set filename snap.[format "%04d" \$frame].tga
     animate goto \$i
     render TachyonInternal $1/\$filename
     incr frame
 }
-
 exit
 eof

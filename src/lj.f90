@@ -32,7 +32,7 @@ program lj
 
   nbuild = 100
   R_neighbors = 15.d0
-  write_xyz = 10000
+  write_xyz = 2000
   write_log = 10000
 
   epsilon = 0.0117d0
