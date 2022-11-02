@@ -13,7 +13,7 @@ unset colorbox
 plot "NVTP.dat" u 3:(-(column(4)-8.617e-5*column(1)/column(2)*column(3))/8.617e-5/(column(1)/column(2))**2/column(3) * 1.e-24 * 6.022e23):(column(1)/column(2)*1000.) not pt 7 lw 4 lc palette, \
      "NVTP.dat" u 3:(-(column(4)-8.617e-5*column(1)/column(2)*column(3))/8.617e-5/(column(1)/column(2))**2/column(3) * 1.e-24 * 6.022e23) t "Calculated (MD)" pt 6 lw 2 lc -1, \
      "optim.dat" u 1:2 w lp t "Experimental" lw 4 lc 2, \
-     "NVTP.dat" u 3:(-(column(4)-8.617e-5*column(1)/column(2)*column(3))/8.617e-5/(column(1)/column(2))**2/column(3) * 1.e-24 * 6.022e23):(sprintf(" %s", stringcolumn(5))) w labels left not
+     "NVTP.dat" u 3:(-(column(4)-8.617e-5*column(1)/column(2)*column(3))/8.617e-5/(column(1)/column(2))**2/column(3) * 1.e-24 * 6.022e23):(sprintf("%s", " ".stringcolumn(5))) w labels left not
 eof
 
 L=$2
