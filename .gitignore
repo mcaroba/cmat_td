@@ -1,6 +1,4 @@
 bin/
 src/*.o
 src/*.mod
-make_stills.sh
 temp/
-canvas.png
